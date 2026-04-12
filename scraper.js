@@ -11,6 +11,13 @@ async function checkBikes() {
   const page = await browser.newPage();
   const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
+  const hour = new Date().getHours();
+
+  if (hour < 6 || hour >= 22) {
+    console.log("🌙 Night mode: skipping check");
+    return;
+  }
+
   try {
     console.log("🔄 checking...");
 
