@@ -13,7 +13,7 @@ async function checkBikes() {
 
   const hour = new Date().getHours();
 
-  if (hour < 6 || hour >= 22) {
+  if (hour < 5 || hour >= 22) {
     console.log("🌙 Night mode: skipping check");
     return;
   }
