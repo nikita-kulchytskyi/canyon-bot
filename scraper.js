@@ -5,18 +5,18 @@ const { sendBike } = require("./telegram");
 const { sendBikeBatch } = require("./telegram");
 
 async function checkBikes() {
-  const seen = loadSeen();
-
-  const browser = await chromium.launch({ headless: true });
-  const page = await browser.newPage();
-  const delay = (ms) => new Promise((res) => setTimeout(res, ms));
-
   const hour = new Date().getHours();
 
   if (hour < 5 || hour >= 22) {
     console.log("🌙 Night mode: skipping check");
     return;
   }
+
+  const seen = loadSeen();
+
+  const browser = await chromium.launch({ headless: true });
+  const page = await browser.newPage();
+  const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
   try {
     console.log("🔄 checking...");
