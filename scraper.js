@@ -70,7 +70,7 @@ async function checkBikes() {
 
       const formatted = formatBike(bike);
 
-      await sendBike(formatted);
+      // await sendBike(formatted);
       await delay(1500);
 
       newItems.push(bike);
